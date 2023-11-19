@@ -34,7 +34,6 @@ function vertaaKirjain(kirjain1, kirjain2) {
 
 function vertaaSanaJaKirjain(sana, kirjain) {
     if (sana.includes(kirjain)) {
-        console.log("tosi");
         return true;
     } else {
         return false;
