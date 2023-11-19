@@ -1,4 +1,4 @@
-let sanalista[
+let sanalista = [
   "a",
   "ability",
   "able",
