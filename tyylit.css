@@ -1,0 +1,21 @@
+th {
+    width: 5%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    font-size: larger;
+
+}
+
+.oikein {
+    background-color: green;
+}
+
+.melkein {
+    background-color: yellow;
+}
+
+.eiok {
+    background-color: red;
+}
