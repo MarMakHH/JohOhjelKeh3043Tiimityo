@@ -1,5 +1,5 @@
 
-
+//Kun pelaaja tekee arvauksen --> aktivoi
 function arvaa() {
     console.log(sanalista)
     let arvattava = "testi";
@@ -12,6 +12,7 @@ function arvaa() {
     tulostaArvaus(arvaus, arvattavaL);
 }
 
+//siistii sanan, jotta se on samassa muodossa kuin wordlist.js
 function muokkaaSana(sana) {
     let tsana = String(sana);
     tsana = tsana.trim();
@@ -27,6 +28,7 @@ function vertaaKirjain(kirjain1, kirjain2) {
     }
 }
 
+//tekee sanasta listan tulostusta varten
 function teeLista(sana) {
     let lista = [];
     let tsana = String(sana);
@@ -36,6 +38,7 @@ function teeLista(sana) {
     return lista;
 }
 
+//luo taulukon ja vertaa kirjaimet. Class kertoo vertauksen tuloksen 
 function tulostaArvaus(sana, arvattava) {
     let vastaus = "<tr>";
     for (let i = 0; i < sana.length; i++) {
