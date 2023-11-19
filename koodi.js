@@ -1,21 +1,19 @@
-let arvattava = sanalista[Math.floor(Math.random()*sanalista.length)];
+let arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
 
 //kun sivu päivittyy --> aktivoi
 function sivuLataa() {
-    document.getElementById("info").innerHTML = "Sanan pituus: "+ arvattava.length;
+    document.getElementById("info").innerHTML = "Sanan pituus: " + arvattava.length;
+    console.log(arvattava);
 }
 
 //Kun pelaaja tekee arvauksen --> aktivoi
 function arvaa() {
-    console.log(sanalista)
-    
-    
     let arvaus = String(document.getElementById("inputw").value);
     arvaus = muokkaaSana(arvaus);
     let arvausL = teeLista(arvaus);
     let arvattavaL = teeLista(arvattava);
     console.log(arvausL);
-    tulostaArvaus(arvaus, arvattavaL);
+    tulostaArvaus(arvausL, arvattavaL);
 }
 
 //siistii sanan, jotta se on samassa muodossa kuin wordlist.js
@@ -34,27 +32,36 @@ function vertaaKirjain(kirjain1, kirjain2) {
     }
 }
 
+function vertaaSanaJaKirjain(sana, kirjain) {
+    if (sana.includes(kirjain)) {
+        console.log("tosi");
+        return true;
+    } else {
+        return false;
+    }
+}
+
 //tekee sanan kirjaimista listan tulostusta varten
 function teeLista(sana) {
     let lista = [];
     let tsana = String(sana);
     for (let i = 0; i < sana.length; i++) {
-        lista.push(tsana.charAt(i));      
+        lista.push(tsana.charAt(i));
     }
     return lista;
 }
 
-//luo taulukon ja vertaa kirjaimet. Class kertoo vertauksen tuloksen 
-function tulostaArvaus(sana, arvattava) {
+//luo taulukon ja vertaa kirjaimet ja/tai sanat. Class kertoo vertauksen tuloksen 
+function tulostaArvaus(arvausSana, arvattavaSana) {
     let vastaus = "<tr>";
-    for (let i = 0; i < sana.length; i++) {
-        if (vertaaKirjain(sana[i],arvattava[i])) {
-            vastaus += "<th class='oikein'>"+sana[i]+"</th>"
+    for (let i = 0; i < arvausSana.length; i++) {
+        if (vertaaKirjain(arvausSana[i], arvattavaSana[i])) {
+            vastaus += "<th class='oikein'>" + arvausSana[i] + "</th>";
+        } else if (vertaaSanaJaKirjain(arvattava, arvausSana[i])) {
+            vastaus += "<th class='melkein'>" + arvausSana[i] + "</th>";
         } else {
-            vastaus += "<th class='eiok'>"+sana[i]+"</th>"
+            vastaus += "<th class='eiok'>" + arvausSana[i] + "</th>";
         }
-        
-        
     }
     vastaus += "</tr>"
     document.getElementById("arvaukset").innerHTML += vastaus;
