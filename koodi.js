@@ -28,7 +28,7 @@ function vertaaKirjain(kirjain1, kirjain2) {
     }
 }
 
-//tekee sanasta listan tulostusta varten
+//tekee sanan kirjaimista listan tulostusta varten
 function teeLista(sana) {
     let lista = [];
     let tsana = String(sana);
