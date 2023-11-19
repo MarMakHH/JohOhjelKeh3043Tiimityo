@@ -1,9 +1,15 @@
+let arvattava = sanalista[Math.floor(Math.random()*sanalista.length)];
+
+//kun sivu päivittyy --> aktivoi
+function sivuLataa() {
+    document.getElementById("info").innerHTML = "Sanan pituus: "+ arvattava.length;
+}
 
 //Kun pelaaja tekee arvauksen --> aktivoi
 function arvaa() {
     console.log(sanalista)
-    let arvattava = "testi";
-    document.getElementById("info").innerHTML = "Sanan pituus: "+ arvattava.length;
+    
+    
     let arvaus = String(document.getElementById("inputw").value);
     arvaus = muokkaaSana(arvaus);
     let arvausL = teeLista(arvaus);
