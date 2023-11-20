@@ -1,10 +1,16 @@
-let arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
+let arvattava = [];
 //arvattava = "testi";
 
-//kun sivu päivittyy --> aktivoi
-function sivuLataa() {
-    document.getElementById("info").innerHTML = "Sanan pituus: " + arvattava.length;
+let arvauksiakpl = 0;
+function arvoSana() {
+    arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
     console.log(arvattava);
+    arvauksiakpl = arvattava.length + 1;
+
+    document.getElementById("info").innerHTML = "Sanan pituus: " + arvattava.length + "<br>Arvauksia jäljellä: " + arvauksiakpl;
+    document.getElementById("pelialue").innerHTML = "<form><label for='inputw'>Input Word:</label><br><input type='text' id='inputw' name='inputw' maxlength='" + arvattava.length + "'><br><input type='button' id='submit' value='arvaa' onclick='arvaa()'></form>";
+    document.getElementById("arvaukset").innerHTML = "";
+
 }
 
 //Kun pelaaja tekee arvauksen --> aktivoi
@@ -15,9 +21,14 @@ function arvaa() {
     let arvattavaL = teeLista(arvattava);
     console.log(arvausL);
     tulostaArvaus(arvausL, arvattavaL);
+    arvauksiakpl--;
+    document.getElementById("info").innerHTML = "Sanan pituus: " + arvattava.length + "<br>Arvauksia jäljellä: " + arvauksiakpl;
     if (vertaaSana(arvattava, arvaus)) {
-        document.getElementById("pelialue").innerHTML = "VOITIT PELIN"
+        document.getElementById("pelialue").innerHTML = "VOITIT PELIN";
+    } else if (arvauksiakpl == 0) {
+        document.getElementById("pelialue").innerHTML = "HÄVISIT PELIN";
     }
+    document.getElementById("inputw").value = "";
 }
 
 //siistii sanan, jotta se on samassa muodossa kuin wordlist.js
