@@ -1,4 +1,5 @@
 let arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
+//arvattava = "testi";
 
 //kun sivu päivittyy --> aktivoi
 function sivuLataa() {
@@ -14,6 +15,9 @@ function arvaa() {
     let arvattavaL = teeLista(arvattava);
     console.log(arvausL);
     tulostaArvaus(arvausL, arvattavaL);
+    if (vertaaSana(arvattava, arvaus)) {
+        document.getElementById("pelialue").innerHTML = "VOITIT PELIN"
+    }
 }
 
 //siistii sanan, jotta se on samassa muodossa kuin wordlist.js
@@ -34,6 +38,14 @@ function vertaaKirjain(kirjain1, kirjain2) {
 
 function vertaaSanaJaKirjain(sana, kirjain) {
     if (sana.includes(kirjain)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function vertaaSana(sana1, sana2) {
+    if (sana1 == sana2) {
         return true;
     } else {
         return false;
