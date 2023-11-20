@@ -31,8 +31,8 @@ function arvoSana(vaikeus) {
     console.log(arvattava);
     arvauksiakpl = arvattava.length + 1;
 
-    document.getElementById("info").innerHTML = "Sanan pituus: " + arvattava.length + "<br>Arvauksia jäljellä: " + arvauksiakpl;
-    document.getElementById("pelialue").innerHTML = "<form><label for='inputw'>Input Word:</label><br><input type='text' id='inputw' name='inputw' maxlength='" + arvattava.length + "' onkeydown='return /[a-z]/i.test(event.key)'><br><input type='button' id='submit' value='arvaa' onclick='arvaa()'></form>";
+    document.getElementById("info").innerHTML = "Word length: " + arvattava.length + "<br>Guesses left: " + arvauksiakpl;
+    document.getElementById("pelialue").innerHTML = "<form><label for='inputw'>Input Word:</label><br><input type='text' id='inputw' name='inputw' maxlength='" + arvattava.length + "' onkeydown='return /[a-z]/i.test(event.key)'><br><input type='button' id='submit' value='Guess word' onclick='arvaa()'></form>";
     document.getElementById("arvaukset").innerHTML = "";
 
 }
@@ -46,11 +46,11 @@ function arvaa() {
     console.log(arvausL);
     tulostaArvaus(arvausL, arvattavaL);
     arvauksiakpl--;
-    document.getElementById("info").innerHTML = "Sanan pituus: " + arvattava.length + "<br>Arvauksia jäljellä: " + arvauksiakpl;
+    document.getElementById("info").innerHTML = "Word length: " + arvattava.length + "<br>Guesses left: " + arvauksiakpl;
     if (vertaaSana(arvattava, arvaus)) {
-        document.getElementById("pelialue").innerHTML = "VOITIT PELIN";
+        document.getElementById("pelialue").innerHTML = "YOU WON!";
     } else if (arvauksiakpl == 0) {
-        document.getElementById("pelialue").innerHTML = "HÄVISIT PELIN<br>Sana oli: " + arvattava;
+        document.getElementById("pelialue").innerHTML = "YOU LOST!<br>The word was: " + arvattava;
     }
     document.getElementById("inputw").value = "";
 }
