@@ -1,21 +1,35 @@
+body {
+    background-color: cadetblue;
+    text-align: center;
+}
+
+h1 {
+    font-family: Papyrus;
+    text-transform: uppercase;
+}
+
 th {
-    width: 5%;
+    width: 40px;
+    height: 40px;
 }
 
 table, th, td {
     border: 1px solid black;
     font-size: larger;
-
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .oikein {
-    background-color: green;
+    background-color: rgb(140, 209, 37);
 }
 
 .melkein {
-    background-color: yellow;
+    background-color: rgb(255, 255, 61);
 }
 
 .eiok {
-    background-color: red;
+    background-color: rgb(253, 51, 51);
 }
