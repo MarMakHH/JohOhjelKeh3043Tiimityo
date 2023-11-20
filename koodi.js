@@ -8,7 +8,7 @@ function arvoSana() {
     arvauksiakpl = arvattava.length + 1;
 
     document.getElementById("info").innerHTML = "Sanan pituus: " + arvattava.length + "<br>Arvauksia jäljellä: " + arvauksiakpl;
-    document.getElementById("pelialue").innerHTML = "<form><label for='inputw'>Input Word:</label><br><input type='text' id='inputw' name='inputw' maxlength='" + arvattava.length + "'><br><input type='button' id='submit' value='arvaa' onclick='arvaa()'></form>";
+    document.getElementById("pelialue").innerHTML = "<form><label for='inputw'>Input Word:</label><br><input type='text' id='inputw' name='inputw' maxlength='" + arvattava.length + "' onkeydown='return /[a-z]/i.test(event.key)'><br><input type='button' id='submit' value='arvaa' onclick='arvaa()'></form>";
     document.getElementById("arvaukset").innerHTML = "";
 
 }
@@ -26,7 +26,7 @@ function arvaa() {
     if (vertaaSana(arvattava, arvaus)) {
         document.getElementById("pelialue").innerHTML = "VOITIT PELIN";
     } else if (arvauksiakpl == 0) {
-        document.getElementById("pelialue").innerHTML = "HÄVISIT PELIN";
+        document.getElementById("pelialue").innerHTML = "HÄVISIT PELIN<br>Sana oli: " + arvattava;
     }
     document.getElementById("inputw").value = "";
 }
