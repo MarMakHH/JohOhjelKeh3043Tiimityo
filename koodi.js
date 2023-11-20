@@ -1,9 +1,33 @@
-let arvattava = [];
+let arvattava = "";
 //arvattava = "testi";
 
 let arvauksiakpl = 0;
-function arvoSana() {
-    arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
+function arvoSana(vaikeus) {
+    if (vaikeus == 3) {
+        while (true) {
+            arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
+            if (arvattava.length > 7) {
+                break;
+            }
+        }
+    } else if (vaikeus == 2) {
+        while (true) {
+            arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
+            if (arvattava.length > 4 && arvattava.length < 8) {
+                break;
+            }
+        }
+    } else if (vaikeus == 1) {
+        while (true) {
+            arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
+            if (arvattava.length > 0 && arvattava.length < 5) {
+                break;
+            }
+        }
+    } else {
+        arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
+    }
+
     console.log(arvattava);
     arvauksiakpl = arvattava.length + 1;
 
