@@ -1,11 +1,15 @@
 body {
     background-color: cadetblue;
     text-align: center;
+    background-image: url(tausta.jpg); 
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 h1 {
     font-family: Papyrus;
     text-transform: uppercase;
+    margin-top: 200px;
 }
 
 th {
