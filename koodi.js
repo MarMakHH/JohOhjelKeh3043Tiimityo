@@ -48,9 +48,9 @@ function arvaa() {
     arvauksiakpl--;
     document.getElementById("info").innerHTML = "Word length: " + arvattava.length + "<br>Guesses left: " + arvauksiakpl;
     if (vertaaSana(arvattava, arvaus)) {
-        document.getElementById("pelialue").innerHTML = "YOU WON!";
+        document.getElementById("pelialue").innerHTML = "<div class='won'> YOU WON! </div>";
     } else if (arvauksiakpl == 0) {
-        document.getElementById("pelialue").innerHTML = "YOU LOST!<br>The word was: " + arvattava;
+        document.getElementById("pelialue").innerHTML = "<div class='lost'> YOU LOST! </div> <br>The world was: " + arvattava;
     }
     document.getElementById("inputw").value = "";
 }
