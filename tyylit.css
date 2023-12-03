@@ -61,3 +61,41 @@ td {
 }
 
 /* säädän vielä mikä näyttäisi kivalta, otan mielipiteitä vastaan! */
+
+span{
+    white-space: nowrap;
+}
+.historywon{
+    background-color: rgb(140, 209, 37);
+}
+
+.historylost{
+    background-color: rgb(253, 51, 51);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    background-color: cadetblue;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }

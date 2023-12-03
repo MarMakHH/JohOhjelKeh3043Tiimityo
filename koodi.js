@@ -1,9 +1,11 @@
 let arvattava = "";
 //arvattava = "testi";
+let vaikeusAste ="";
 
 let arvauksiakpl = 0;
 function arvoSana(vaikeus) {
     if (vaikeus == 3) {
+        vaikeusAste = "Hard";
         while (true) {
             arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
             if (arvattava.length > 7) {
@@ -11,6 +13,7 @@ function arvoSana(vaikeus) {
             }
         }
     } else if (vaikeus == 2) {
+        vaikeusAste = "Normal";
         while (true) {
             arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
             if (arvattava.length > 4 && arvattava.length < 8) {
@@ -18,6 +21,7 @@ function arvoSana(vaikeus) {
             }
         }
     } else if (vaikeus == 1) {
+        vaikeusAste = "Easy";
         while (true) {
             arvattava = sanalista[Math.floor(Math.random() * sanalista.length)];
             if (arvattava.length > 0 && arvattava.length < 5) {
@@ -51,8 +55,10 @@ function arvaa() {
         document.getElementById("info").innerHTML = "Word length: " + arvattava.length + "<br>Guesses left: " + arvauksiakpl;
         if (vertaaSana(arvattava, arvaus)) {
             document.getElementById("pelialue").innerHTML = "<div class='won'> YOU WON! </div>";
+            document.getElementById("historia").innerHTML += "<p>Mode: "+vaikeusAste+" | Word: "+arvattava+" | <span class='historywon'>Game Won</span></p>";
         } else if (arvauksiakpl == 0) {
             document.getElementById("pelialue").innerHTML = "<div class='lost'> YOU LOST! </div> <br>The world was: " + arvattava;
+            document.getElementById("historia").innerHTML += "<p>Mode: "+vaikeusAste+" | Word: "+arvattava+" | <span class='historylost'>Game Lost</span></p>";
         }
 
     }

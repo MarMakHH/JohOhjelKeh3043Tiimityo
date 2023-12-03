@@ -14,9 +14,15 @@
 <body>
     <div class="ui">
         <h1>wordspeak</h1>
+        <p>Choose difficulty level:</p>
+        <p>
         <button id="aloita" onclick="arvoSana(1)">Easy</button>
         <button id="aloita" onclick="arvoSana(2)">Normal</button>
         <button id="aloita" onclick="arvoSana(3)">Hard</button>
+    </p>
+        <div class="tooltip">Game history
+            <span class="tooltiptext" id="historia"></span>
+          </div>
         <div id="pelialue">
             <!-- <form>
             <label for="inputw">Input Word:</label><br>
