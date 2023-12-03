@@ -1,9 +1,18 @@
 body {
     background-color: cadetblue;
     text-align: center;
-    background-image: url(tausta.jpg); 
+    background-image: url(tausta.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ui {
+    border: 1px solid black;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 10%;
+    background-color: rgba(80, 235, 230, 0.76)
 }
 
 h1 {
@@ -17,7 +26,9 @@ th {
     height: 40px;
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid black;
     font-size: larger;
     text-transform: uppercase;
